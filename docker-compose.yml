@@ -9,6 +9,15 @@ services:
       - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
     command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
 
+  redis-commander:
+      image: rediscommander/redis-commander:latest
+      ports:
+        - "8081:8081"
+      environment:
+        - REDIS_HOSTS=local:redisbox:6379
+      depends_on: 
+        - redisbox
+        
   jumpbox:
     build: ./jumpbox
     container_name: jumpbox
