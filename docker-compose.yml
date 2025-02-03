@@ -1,5 +1,5 @@
 name: prctr-hsa-hw11
-version: '3.8'
+
 services:
   redis-master:
     image: redis:latest
@@ -78,6 +78,11 @@ services:
     command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
     depends_on:
       - redis-sentinel
+
+  load-test:
+    build: ./load-test
+    volumes:
+      - ./load-test/scripts:/scripts
 
 networks:
   default:
