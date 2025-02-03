@@ -1,31 +1,75 @@
 name: prctr-hsa-hw11
+version: '3.8'
 services:
-  redisbox:
+  redis-master:
     image: redis:latest
-    container_name: redisbox
+    container_name: redis-master
     ports:
       - "6379:6379"
     volumes:
-      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis-master/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis-master/logs:/var/log/redis
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  redis-slave:
+    image: redis:latest
+    container_name: redis-slave
+    ports:
+      - "6380:6379"
+    volumes:
+      - ./redis-slave/redis.conf:/usr/local/etc/redis/redis.conf
+    depends_on:
+      - redis-master
     command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
 
-  redis-commander:
-      image: rediscommander/redis-commander:latest
-      ports:
-        - "8081:8081"
-      environment:
-        - REDIS_HOSTS=local:redisbox:6379
-      depends_on: 
-        - redisbox
-        
+  redis-sentinel:
+    image: redis:latest
+    container_name: redis-sentinel
+    depends_on:
+      redis-master:
+        condition: service_healthy
+      redis-slave:
+        condition: service_started
+    ports:
+      - "26379:26379"
+    volumes:
+      - ./sentinel/sentinel.conf:/usr/local/etc/redis/sentinel.conf        
+    command: >
+      sh -c "until getent hosts redis-master; do echo 'Waiting for redis-master...'; sleep 1; done;
+            exec redis-sentinel /usr/local/etc/redis/sentinel.conf"
+
+  # redis-commander:
+  #   image: rediscommander/redis-commander:latest
+  #   ports:
+  #     - "8081:8081"
+  #   environment:
+  #     - REDIS_HOSTS=local:redis-master:6379
+  #   depends_on: 
+  #     - redis-master
+  #     - redis-sentinel
+
+  redisinsight:
+    image: redislabs/redisinsight:latest
+    container_name: redisinsight
+    ports:
+      - "5540:5540"
+      
   jumpbox:
     build: ./jumpbox
     container_name: jumpbox
     ports:
       - "8888:8888"
-
     volumes:
       - ./jumpbox:/app
     command: jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root
-    depends_on: ["redisbox"]
+    depends_on: ["redis-sentinel"]
+
+networks:
+  default:
+    driver: bridge
 

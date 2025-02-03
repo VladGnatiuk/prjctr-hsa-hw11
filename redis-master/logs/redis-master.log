@@ -1,0 +1,66 @@
+1:C 03 Feb 2025 03:48:54.708 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 03 Feb 2025 03:48:54.711 * Redis version=7.4.2, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 03 Feb 2025 03:48:54.713 * Configuration loaded
+1:M 03 Feb 2025 03:48:54.715 * monotonic clock: POSIX clock_gettime
+1:M 03 Feb 2025 03:48:54.718 * Running mode=standalone, port=6379.
+1:M 03 Feb 2025 03:48:54.719 * Server initialized
+1:M 03 Feb 2025 03:48:54.721 * Loading RDB produced by version 7.4.2
+1:M 03 Feb 2025 03:48:54.723 * RDB age 1 seconds
+1:M 03 Feb 2025 03:48:54.725 * RDB memory usage when created 2.90 Mb
+1:M 03 Feb 2025 03:48:54.733 * Done loading RDB, keys loaded: 5, keys expired: 0.
+1:M 03 Feb 2025 03:48:54.735 * DB loaded from disk: 0.014 seconds
+1:M 03 Feb 2025 03:48:54.737 * Ready to accept connections tcp
+1:M 03 Feb 2025 03:48:55.470 * Replica 172.28.0.4:6379 asks for synchronization
+1:M 03 Feb 2025 03:48:55.474 * Partial resynchronization request from 172.28.0.4:6379 accepted. Sending 158 bytes of backlog starting from offset 35729329.
+1:M 03 Feb 2025 03:53:55.070 * 100 changes in 300 seconds. Saving...
+1:M 03 Feb 2025 03:53:55.072 * Background saving started by pid 385
+385:C 03 Feb 2025 03:53:55.083 * DB saved on disk
+385:C 03 Feb 2025 03:53:55.085 * Fork CoW for RDB: current 0 MB, peak 0 MB, average 0 MB
+1:M 03 Feb 2025 03:53:55.174 * Background saving terminated with success
+1:signal-handler (1738554875) Received SIGTERM scheduling shutdown...
+1:M 03 Feb 2025 03:54:35.172 * User requested shutdown...
+1:M 03 Feb 2025 03:54:35.174 * 1 of 1 replicas are in sync when shutting down.
+1:M 03 Feb 2025 03:54:35.175 * Saving the final RDB snapshot before exiting.
+1:M 03 Feb 2025 03:54:35.183 * DB saved on disk
+1:M 03 Feb 2025 03:54:35.184 # Redis is now ready to exit, bye bye...
+1:C 03 Feb 2025 03:54:35.992 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 03 Feb 2025 03:54:35.994 * Redis version=7.4.2, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 03 Feb 2025 03:54:35.995 * Configuration loaded
+1:M 03 Feb 2025 03:54:35.997 * monotonic clock: POSIX clock_gettime
+1:M 03 Feb 2025 03:54:36.000 * Running mode=standalone, port=6379.
+1:M 03 Feb 2025 03:54:36.002 * Server initialized
+1:M 03 Feb 2025 03:54:36.004 * Loading RDB produced by version 7.4.2
+1:M 03 Feb 2025 03:54:36.006 * RDB age 0 seconds
+1:M 03 Feb 2025 03:54:36.007 * RDB memory usage when created 2.95 Mb
+1:M 03 Feb 2025 03:54:36.010 * Done loading RDB, keys loaded: 5, keys expired: 0.
+1:M 03 Feb 2025 03:54:36.012 * DB loaded from disk: 0.009 seconds
+1:M 03 Feb 2025 03:54:36.014 * Ready to accept connections tcp
+1:M 03 Feb 2025 03:54:36.165 * Replica 172.28.0.4:6379 asks for synchronization
+1:M 03 Feb 2025 03:54:36.167 * Partial resynchronization request from 172.28.0.4:6379 accepted. Sending 0 bytes of backlog starting from offset 57300506.
+1:M 03 Feb 2025 03:59:36.023 * 100 changes in 300 seconds. Saving...
+1:M 03 Feb 2025 03:59:36.025 * Background saving started by pid 378
+378:C 03 Feb 2025 03:59:36.039 * DB saved on disk
+378:C 03 Feb 2025 03:59:36.041 * Fork CoW for RDB: current 0 MB, peak 0 MB, average 0 MB
+1:M 03 Feb 2025 03:59:36.128 * Background saving terminated with success
+1:C 03 Feb 2025 04:03:36.366 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+1:C 03 Feb 2025 04:03:36.371 * Redis version=7.4.2, bits=64, commit=00000000, modified=0, pid=1, just started
+1:C 03 Feb 2025 04:03:36.378 * Configuration loaded
+1:M 03 Feb 2025 04:03:36.384 * monotonic clock: POSIX clock_gettime
+1:M 03 Feb 2025 04:03:36.395 * Running mode=standalone, port=6379.
+1:M 03 Feb 2025 04:03:36.401 * Server initialized
+1:M 03 Feb 2025 04:03:36.411 * Loading RDB produced by version 7.4.2
+1:M 03 Feb 2025 04:03:36.415 * RDB age 240 seconds
+1:M 03 Feb 2025 04:03:36.418 * RDB memory usage when created 2.77 Mb
+1:M 03 Feb 2025 04:03:36.424 * Done loading RDB, keys loaded: 4, keys expired: 0.
+1:M 03 Feb 2025 04:03:36.428 * DB loaded from disk: 0.022 seconds
+1:M 03 Feb 2025 04:03:36.432 * Ready to accept connections tcp
+1:M 03 Feb 2025 04:03:36.702 * Replica 172.28.0.4:6379 asks for synchronization
+1:M 03 Feb 2025 04:03:36.704 * Unable to partial resync with replica 172.28.0.4:6379 for lack of backlog (Replica request was: 67556767).
+1:M 03 Feb 2025 04:03:36.709 * Delay next BGSAVE for diskless SYNC
+1:M 03 Feb 2025 04:03:41.482 * Starting BGSAVE for SYNC with target: replicas sockets
+1:M 03 Feb 2025 04:03:41.491 * Background RDB transfer started by pid 27
+27:C 03 Feb 2025 04:03:41.496 * Fork CoW for RDB: current 0 MB, peak 0 MB, average 0 MB
+1:M 03 Feb 2025 04:03:41.502 * Diskless rdb transfer, done reading from pipe, 1 replicas still up.
+1:M 03 Feb 2025 04:03:41.533 * Background RDB transfer terminated with success
+1:M 03 Feb 2025 04:03:41.536 * Streamed RDB transfer with replica 172.28.0.4:6379 succeeded (socket). Waiting for REPLCONF ACK from replica to enable streaming
+1:M 03 Feb 2025 04:03:41.539 * Synchronization with replica 172.28.0.4:6379 succeeded

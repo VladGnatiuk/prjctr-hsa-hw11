@@ -10,3 +10,10 @@ Jupyter
 
 Redis Commander
     http://localhost:8081
+
+redisinsight
+    http://localhost:5540
+        Add redis-sentinel:26379 endpoint
+
+troubleshooting
+    docker exec -it redisinsight sh -c "netstat -tln"
