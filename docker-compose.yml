@@ -69,6 +69,16 @@ services:
     command: jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root
     depends_on: ["redis-sentinel"]
 
+  myapi:
+    build: ./myapi
+    ports:
+      - "9090:8000"
+    volumes:
+      - ./myapi:/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    depends_on:
+      - redis-sentinel
+
 networks:
   default:
     driver: bridge
